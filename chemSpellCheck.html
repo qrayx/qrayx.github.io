@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>qrayx's ChemSpell Checker</title>
+    <link rel="stylesheet" type="text/css" href="chemSpellCheck.css" />
+    <script src="chemSpellCheck.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <section id="explanation">
+            <h1>qrayx's ChemSpell Checker</h1>
+            <p>This tool is used to figure out which words can be spelled with elemental symbols (e.g. "H" for "Hydrogen", or "Fe" for "Iron"). Type in any list of words into the input and click the <strong>Check</strong> button. Try it with the examples given.</p>
+            <p>If a word has multiple ways of being spelled with symbols, each possibility will be printed.</p>
+            <p>You can toggle the output to print the elemental symbols (e.g. "W") or the full names of elements (e.g. "Tungsten").</p>
+            <p>Only letters will be considered. There is no case sensitivity. Non-letters (numbers, symbols, spaces) will be ignored.</p>
+        </section>
+        <section>
+            <div id="magic">
+                <div id="input">
+                    <label for="inputform" class="title"><strong>Input</strong></label>
+                    <form id="inputform">
+                        <textarea id="inputtext" name="inputtext">Cinnamon
+Hot Latte
+Clara's Orange</textarea>
+                    </form>
+                    <label class="title">Output Style</label>
+                    <label for="symbolradio" class="radiolabel">Symbols</label>
+                    <input id="symbolradio" type="radio" name="outputtype" checked="checked">
+                    <label for="fullnameradio" class="radiolabel">Full Names</label>
+                    <input id="fullnameradio" type="radio" name="outputtype">
+                    <br>
+                    <input type="submit" value="Check" onclick="checkClick()">
+                    <input type="submit" value="Sort A-Z" onclick="sortAlpha()">
+                    <input type="submit" value="Sort Length" onclick="sortLength()">
+                </div>
+                <div id="output">
+                    <label for="outputform" class="title"><strong>Results</strong></label>
+                    <form id="outputform">
+                        <!-- action will trigger code -->
+                        <!--input type="text" name="words-to-check" value="Example Text"-->
+                        <textarea id="outputtext" name="outputtext" readonly></textarea>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div>
+</body>
+
+</html>
+<!-- This is a comment -->
