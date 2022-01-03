@@ -432,16 +432,14 @@ let selectedList = elements;
 
 function checkNextLetters(inputString, indicesSoFar, originalWord) {
     // If the word is done, that means you have a viable ChemSpell. Write it out.
-
     if (inputString.length === 0) {
         writeOutput(indicesSoFar, originalWord, outputStyle);
         return;
     }
 
-    // Could probably combine these two checks into one.
-
+    // Otherwise, go through the list to see if the next letter(s) in your word match any symbols.
     for (let i = 0; i < selectedList.length; i++) {
-        let symbolLength = selectedList[i][0].length;
+        let symbolLength = selectedList[i][0].length; // Symbols are often 1 or 2 characters long.
         if (inputString.substr(0, symbolLength).toLowerCase() === selectedList[i][0].toLowerCase()) {
             checkNextLetters(inputString.slice(symbolLength), indicesSoFar.concat(i), originalWord);
         }
@@ -455,6 +453,7 @@ function writeOutput(indices, originalWord) {
         outputLine += selectedList[index][outputStyle] + " - ";
     });
     outputText += (originalWord + ": " + outputLine.slice(0, -3) + "\n");
+    // Each symbol/word in the output has " - " and a new line appended. At the end, remove the final '-' and newline.
 }
 
 
@@ -480,6 +479,7 @@ function checkClick() {
     var inputs = inputTextElement.value.split('\n');
     inputs.forEach((input) => {
         // Taken from StackOverflow: https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+        // Change accented characters into non-accented characters, then remove non-letter characters and spaces.
         let inputAdjusted = input.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z]/g, "");
         if (inputAdjusted.length > 0) {
             checkNextLetters(inputAdjusted, new Array(), input)
