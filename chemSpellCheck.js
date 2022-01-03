@@ -478,8 +478,10 @@ function checkClick() {
     var inputTextElement = document.getElementById("inputtext");
     var inputs = inputTextElement.value.split('\n');
     inputs.forEach((input) => {
-        if (input.replace(/[^a-zA-Z]/g, "").length > 0) {
-            checkNextLetters(input.replace(/[^a-zA-Z]/g, ""), new Array(), input)
+        // Taken from StackOverflow: https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+        let inputAdjusted = input.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z]/g, "");
+        if (inputAdjusted.length > 0) {
+            checkNextLetters(inputAdjusted, new Array(), input)
         }
         var outputTextElement = document.getElementById("outputtext");
         outputTextElement.value = outputText;
