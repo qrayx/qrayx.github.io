@@ -5,6 +5,7 @@
     <title>qrayx's ChemSpell Checker</title>
     <link rel="stylesheet" type="text/css" href="chemSpellCheck.css" />
     <script src="chemSpellCheck.js"></script>
+    <meta charset="utf-8">
 </head>
 
 <body>
@@ -21,19 +22,11 @@
                 <div id="input">
                     <label for="inputform" class="title"><strong>Input</strong></label>
                     <form id="inputform">
-                        <textarea id="inputtext" name="inputtext">Cinnamon
-Hot Latte
-Clara's Orange</textarea>
+                        <textarea id="inputtext" name="inputtext">
+Clara's Orange
+Calamari
+Cabidela</textarea>
                     </form>
-                    <label class="title">Output Style</label>
-                    <label for="symbolradio" class="radiolabel">Symbols</label>
-                    <input id="symbolradio" type="radio" name="outputtype" checked="checked">
-                    <label for="fullnameradio" class="radiolabel">Full Names</label>
-                    <input id="fullnameradio" type="radio" name="outputtype">
-                    <br>
-                    <input type="submit" value="Check" onclick="checkClick()">
-                    <input type="submit" value="Sort A-Z" onclick="sortAlpha()">
-                    <input type="submit" value="Sort Length" onclick="sortLength()">
                 </div>
                 <div id="output">
                     <label for="outputform" class="title"><strong>Results</strong></label>
@@ -43,6 +36,26 @@ Clara's Orange</textarea>
                         <textarea id="outputtext" name="outputtext" readonly></textarea>
                     </form>
                 </div>
+            </div>
+            <div id="controlPanel">
+                <label class="title">Output Style</label>
+                <label for="symbolradio" class="radiolabel">Symbols</label>
+                <input id="symbolradio" type="radio" name="outputtype" checked="checked">
+                <label for="fullnameradio" class="radiolabel">Full Names</label>
+                <input id="fullnameradio" type="radio" name="outputtype">
+                <br>
+                <br>
+                <label for="elementList" class="radiolabel">Elements</label>
+                <input id="elementList" type="radio" name="litsToUse" checked="checked">
+                <label for="countryList" class="radiolabel">Countries</label>
+                <input id="countryList" type="radio" name="litsToUse">
+                <label for="stateList" class="radiolabel">United States</label>
+                <input id="stateList" type="radio" name="litsToUse">
+                <br>
+                <br>
+                <input type="submit" value="Check" onclick="checkClick()">
+                <input type="submit" value="Sort A-Z" onclick="sortAlpha()">
+                <input type="submit" value="Sort Length" onclick="sortLength()">
             </div>
         </section>
         <div>
